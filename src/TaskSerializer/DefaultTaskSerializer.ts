@@ -199,7 +199,7 @@ export class DefaultTaskSerializer implements TaskSerializer {
             case TaskLayoutComponent.CancelledDate:
                 return symbolAndDateValue(shortMode, cancelledDateSymbol, task.cancelledDate);
             case TaskLayoutComponent.DueDate:
-                return symbolAndDateValue(shortMode, dueDateSymbol, task.dueDate);
+                return symbolAndDateValue(shortMode, shortMode ? `<img height="24" src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/${task.dueDate?.format("MMMM-D").toLowerCase()}-icon.png"/>` : dueDateSymbol, task.dueDate);
             case TaskLayoutComponent.RecurrenceRule:
                 if (!task.recurrence) return '';
                 return symbolAndStringValue(shortMode, recurrenceSymbol, task.recurrence.toText());
